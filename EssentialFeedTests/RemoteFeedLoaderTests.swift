@@ -40,7 +40,6 @@ class RemoteFeedLoaderTests: XCTestCase {
         
         var capturedErrors = [RemoteFeedLoader.Error]()
         sut.load { capturedErrors.append($0) }
-        print("capturedErrors \(capturedErrors)")
         
         let clientError = NSError(domain: "Test", code: 0)
         client.complete(with: clientError)
