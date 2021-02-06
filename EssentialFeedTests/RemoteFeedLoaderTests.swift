@@ -17,11 +17,12 @@ class RemoteFeedLoaderTests: XCTestCase {
     }
 
     func test_load_requestsDataFromURL() {
-        let (sut, client) = makeSUT()
+        let url = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
 
         sut.load()
 
-        XCTAssertNotNil(client.requestedURL)
+        XCTAssertEqual(client.requestedURL, url)
     }
     
     // MARK: - Helpers
